@@ -4,6 +4,8 @@ const dbConnection=require("./config/db")
 const authRouter=require("./Routes/authRoutes")
 const recuiterProfileRoute=require("./Routes/RecuiterProfile")
 const recuiterPostJobRoute=require("./Routes/recuiterPostJobRoute")
+const recuiterGetAllJobsRouter=require("./Routes/RouterRecuiterGetAllJobs")
+const recuiterDeleteSingleJobRouter=require("./Routes/recuiterDeleteSingleJobRouter")
 require("dotenv").config()
 const cors=require("cors")
 
@@ -15,6 +17,8 @@ dbConnection()
 app.use("/api/auth",authRouter)
 app.use("/api/recuiters",recuiterProfileRoute)
 app.use("/api/recuitersJobs",recuiterPostJobRoute)
+app.use("/api/recuiter-job_posts",recuiterGetAllJobsRouter)
+app.use("/api/recuiter_jobs",recuiterDeleteSingleJobRouter)
 
 const PORT=process.env.PORT;
 
